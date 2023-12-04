@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EVGEuipmentModels>
+  <Version>1</Version>
+  <EVGModels>
+    <Models>
+      <Model>Bondscale</Model>
+    </Models>
+    <Models>
+      <Model>EVG40</Model>
+    </Models>
+    <Models>
+      <Model>EVG40NT2</Model>
+    </Models>
+	<Models>
+      <Model>EVG810LT</Model>
+    </Models>
+    <Models>
+      <Model>EVG850</Model>
+    </Models>
+    <Models>
+      <Model>EVG850TB</Model>
+    </Models>   
+	<Models>
+      <Model>EVG850DB</Model>
+    </Models>
+    <Models>
+      <Model>GEMINI</Model>
+    </Models>
+    <Models>
+      <Model>GEMINIFB</Model>
+    </Models>
+	<Models>
+      <Model>EVGCOMBOND</Model>
+    </Models>   
+	<Models>
+      <Model>HERCULES</Model>
+    </Models>
+    <Models>
+      <Model>LITHOSCALE</Model>
+    </Models>
+  </EVGModels>
+</EVGEuipmentModels>
