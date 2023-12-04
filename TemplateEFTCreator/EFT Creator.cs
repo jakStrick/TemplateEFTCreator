@@ -14,13 +14,15 @@ using System.Xml.Linq;
 using TemplateEFTCreator.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-/* This app creates an EFT file based on the mapping inputs.
+/***************************************************************************
+ * This app creates an EFT file based on the EVG Model and mapping inputs.
+ * Reads in Model types from and xml file.
  * Allows user to select a foler where the output file is created.
  * If there is no file one will be created.
  * Creator: David Strickland
  * Date: 11/11/2023
- * Version 2.1 */
-
+ * Version 2.1
+ *************************************************************************/
 
 namespace TemplateEFTCreator
 {
@@ -37,10 +39,9 @@ namespace TemplateEFTCreator
         //add the path and model
         private void ButtonSubmit_Click(object sender, EventArgs e)
         {
-            
             if (TextBoxesEmpty())
             {
-                MessageBox.Show("Please Select a Model and enter Path and Model#. Modle# must be Numeric");
+                MessageBox.Show("Please Select a Model and enter Path and Model#. Model# must be Numeric");
                 return;
             }
 
@@ -54,15 +55,13 @@ namespace TemplateEFTCreator
                 fileManager.SetFolderName(mText);
                 AddMappings("openTags");
             }
-            
+
             AddMappings("mappingTags");
             ClearTextBoxes();
         }
 
         private void InitForm()
         {
-            
-
             Model mType = new Model();
             mType.SetModelList();
 
@@ -78,7 +77,7 @@ namespace TemplateEFTCreator
             else
             {
                 const string message =
-                "Model list is empty. Please select a file with a modle list.";
+                "Model list is empty. Please select a file with a model list.";
                 const string caption = "Model list File Selection";
                 var result = MessageBox.Show(message, caption,
                                              MessageBoxButtons.OK,
@@ -108,7 +107,7 @@ namespace TemplateEFTCreator
             m_init = true;
 
             AddMappings("closeTags");
-           
+
             ClearTextBoxes();
         }
 
@@ -117,7 +116,7 @@ namespace TemplateEFTCreator
             Tags tags = new Tags();
             string model = comboBox1.SelectedItem.ToString();
             string path = textBoxPath.Text;
-            string modelNum = textBoxModelNum.Text; 
+            string modelNum = textBoxModelNum.Text;
 
             fileManager.WriteToFile(tags.AddTags(model, path, modelNum, tagType));
         }
@@ -148,13 +147,8 @@ namespace TemplateEFTCreator
         //Exit the app.
         private void ButtonExit_Click(object sender, EventArgs e)
         {
+            this.Dispose();
             Close();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-
 }

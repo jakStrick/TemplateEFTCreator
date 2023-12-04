@@ -189,7 +189,7 @@
             this.comboBox1.Size = new System.Drawing.Size(201, 30);
             this.comboBox1.TabIndex = 13;
             this.comboBox1.Text = "SELECT A MODEL";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+           
             // 
             // imageList1
             // 

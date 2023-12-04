@@ -30,7 +30,6 @@ namespace TemplateEFTCreator
             // If the ok button was pressed ...
             if (result == DialogResult.OK)
             {
-
                 if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                 {
                     FolderName = folderBrowserDialog1.SelectedPath;
@@ -41,7 +40,6 @@ namespace TemplateEFTCreator
 
         public string SetFileName()
         {
-
             const string message =
             "Select a Template Model File";
             const string caption = "Model File Selection";
@@ -63,14 +61,12 @@ namespace TemplateEFTCreator
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                
             }
             return null;
         }
 
         public void WriteToFile(string text)
         {
-
             string path = FolderName;
 
             // Create a file and add the opening tags
@@ -79,25 +75,20 @@ namespace TemplateEFTCreator
             {
                 if (!File.Exists(path))
                 {
-
                     // Create a file to write to.
                     using (StreamWriter sw = File.CreateText(path))
                     {
                         sw.WriteLine(text);
                     }
-
                 }
                 else
                 {
-
                     // The text is added, making the file longer over time
                     using (StreamWriter sw = File.AppendText(path))
                     {
                         sw.WriteLine(text);
                     }
-
                 }
-
             }
             catch (Exception ex)
             {
@@ -107,9 +98,6 @@ namespace TemplateEFTCreator
 
         public XElement ReadFromFile(string filename)
         {
-
-            //String line;
-
             try
             {
                 // Load the XML file from template model file;
@@ -118,7 +106,6 @@ namespace TemplateEFTCreator
                 XElement models = XElement.Load(modelFile);
 
                 return models;
-
             }
             catch (Exception e)
             {
@@ -132,7 +119,4 @@ namespace TemplateEFTCreator
             return null;
         }
     }
-
-
-
 }
