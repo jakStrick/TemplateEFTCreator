@@ -62,13 +62,13 @@ namespace TemplateEFTCreator
 
         private void InitForm()
         {
-            Model mType = new Model();
-            mType.SetModelList();
+            Model model = new Model();
+            model.SetModelList();
 
-            if (mType.ModelType != null)
+            if (model.ModelList != null)
             {
                 InitializeComponent();
-                XElement mElements = XElement.Parse(mType.ModelType.ToString());
+                XElement mElements = XElement.Parse(model.ModelList.ToString());
                 IEnumerable<string> models =
                  from seg in mElements.Descendants("Models")
                  select (string)seg;

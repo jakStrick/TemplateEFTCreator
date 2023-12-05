@@ -15,7 +15,7 @@ namespace TemplateEFTCreator
 
         private readonly OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-        private string FolderName { get; set; }
+        public string FolderName { get; set; }
 
         // choose where your file lives
         public void SetFolderName(string modelType)

@@ -9,21 +9,17 @@ using System.Xml.Linq;
 
 namespace TemplateEFTCreator
 {
-
     public class Model
     {
-
-        public XElement ModelType { get; set; }
+        public XElement ModelList { get; set; }
 
         public void SetModelList()
         {
-            
             FileManager fileManager = new FileManager();
 
             string fileName = fileManager.SetFileName();
 
-            ModelType = fileManager.ReadFromFile(fileName);
+            ModelList = fileManager.ReadFromFile(fileName);
         }
-
     }
 }
