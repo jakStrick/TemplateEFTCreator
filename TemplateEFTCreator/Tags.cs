@@ -2,32 +2,30 @@
 {
     internal class Tags
     {
-        // tags.
-        public string AddTags(string modelText, string pathText, string modelNumText, string tagType)
-        {
-            string tags;
+        public string MappingTags { get; set; }
 
+        // tags.
+        public void AddTags(string modelText, string pathText, string modelNumText, string tagType)
+        {
             if (tagType == "openTags") //openingTags
             {
-                tags = "<?xml version=" + '\u0022' + "1.0" + '\u0022' + " encoding=" + '\u0022' + "utf-8" + '\u0022' + "?>\r\n";
-                tags += "<FingerprintTemplateMappings>\r\n";
-                tags += "  " + "<Version>1</Version>\r\n";
-                tags += "  " + "<Mappings>";
+                MappingTags = "<?xml version=" + '\u0022' + "1.0" + '\u0022' + " encoding=" + '\u0022' + "utf-8" + '\u0022' + "?>\r\n";
+                MappingTags += "<FingerprintTemplateMappings>\r\n";
+                MappingTags += "  " + "<Version>1</Version>\r\n";
+                MappingTags += "  " + "<Mappings>";
             }
             else if (tagType == "mappingTags")//mapping tags
             {
-                tags = "    " + "<Mapping>\r\n";
-                tags += "      " + "<Path>" + modelText + "/" + pathText + "</Path>\r\n";
-                tags += "      " + "<File>" + modelNumText + "_Model.xml" + "</File>\r\n";
-                tags += "    " + "</Mapping>";
+                MappingTags = "    " + "<Mapping>\r\n";
+                MappingTags += "      " + "<Path>" + modelText + "/" + pathText + "</Path>\r\n";
+                MappingTags += "      " + "<File>" + modelNumText + "_Model.xml" + "</File>\r\n";
+                MappingTags += "    " + "</Mapping>";
             }
             else //closing tags
             {
-                tags = "  " + "</Mappings>\r\n";
-                tags += "</FingerprintTemplateMappings>";
+                MappingTags = "  " + "</Mappings>\r\n";
+                MappingTags += "</FingerprintTemplateMappings>";
             }
-
-            return tags;
         }
     }
 }
